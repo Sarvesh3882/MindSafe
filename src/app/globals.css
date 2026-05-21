@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #3DBE29;
+  --color-brand-dark: #1A1A24;
+  --color-brand-mint: #00C9A7;
+  --color-brand-purple: #8B5CF6;
+  --color-brand-blue: #3B82F6;
+  
+  /* Counsellor Theme Colors - Bright Teal (matching login page) */
+  --color-counsellor-primary: #00C9A7;
+  --color-counsellor-dark: #00B396;
+  --color-counsellor-light: #E0FAF5;
+  --color-counsellor-accent: #00C9A7;
+  --color-counsellor-blue: #3B82F6;
+  --color-counsellor-blue-light: #EFF6FF;
+  --color-counsellor-navy: #1E3A8A;
+  
+  --color-status-stable: #3DBE29;
+  --color-status-attention: #FF9F43;
+  --color-status-critical: #FF6B6B;
+  
+  --color-bg-student: #F8FAF9;
+  --color-bg-neutral: #F4F7FB;
+  --color-bg-counsellor: #F8FAFB;
+  
+  --color-text-primary: #111827;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #9CA3AF;
+  --color-text-counsellor: #1E293B;
+  --color-text-counsellor-secondary: #64748B;
+
+  --font-inter: 'Manrope', system-ui, sans-serif;
+  --font-dmsans: 'Outfit', system-ui, sans-serif;
+  
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Performance optimizations - prevent tearing and ensure smooth animations */
+* {
+  /* Smooth font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force GPU acceleration for animated elements */
+[class*="motion-"],
+[class*="animate-"],
+.will-change-transform {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Optimize images for performance */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body {
+  color: #1E1E2E;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(61, 190, 41, 0.11), transparent 31%),
+    radial-gradient(circle at 88% 80%, rgba(0, 201, 167, 0.12), transparent 34%),
+    linear-gradient(170deg, #f4fff7 0%, #ffffff 42%, #edf9ff 100%);
+  font-family: 'Manrope', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -20;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(61, 190, 41, 0.08), transparent 34%),
+    radial-gradient(circle at 88% 86%, rgba(0, 201, 167, 0.08), transparent 36%);
+}
+
+body::after {
+  content: none;
+}
+
+.font-student {
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.font-admin {
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Premium Glassmorphism Utilities */
+@layer utilities {
+  .glass {
+    @apply bg-white/72 backdrop-blur-md border border-white/50 shadow-[0_12px_36px_rgba(14,30,37,0.08)];
+  }
+  .glass-dark {
+    @apply bg-[#1A1A24]/80 backdrop-blur-lg border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#3DBE29] to-[#00C9A7];
+  }
+  .mesh-bg {
+    background-color: #F8FAF9;
+    background-image: 
+      radial-gradient(at 40% 20%, hsla(128,100%,74%,0.15) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsla(255,100%,76%,0.1) 0px, transparent 50%);
+  }
+
+  .panel-surface {
+    @apply rounded-3xl border border-white/60 bg-white/82 backdrop-blur-md shadow-[0_20px_40px_rgba(20,80,56,0.09)];
+  }
+
+  .interactive-card {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_34px_rgba(18,94,54,0.14)] hover:border-[#3DBE29]/35;
+  }
+
+  .app-shell {
+    background:
+      radial-gradient(circle at 5% 5%, rgba(61, 190, 41, 0.08), transparent 28%),
+      radial-gradient(circle at 94% 80%, rgba(0, 201, 167, 0.09), transparent 30%);
+  }
+
+  .noise-overlay {
+    position: relative;
+  }
+
+  .noise-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: radial-gradient(#000 0.45px, transparent 0.45px);
+    background-size: 5px 5px;
+  }
+}
+
+/* Base animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes float-gentle {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 7s ease-in-out infinite;
+}
+
+@keyframes orbit-soft {
+  0% { transform: rotate(0deg) translateX(8px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
+}
+
+@keyframes shimmer-pass {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+@keyframes pulse-fade {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+
+.animate-orbit-soft {
+  animation: orbit-soft 12s linear infinite;
+}
+
+.animate-pulse-fade {
+  animation: pulse-fade 2.8s ease-in-out infinite;
+}
+
+.shimmer-surface {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-surface::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.42) 45%, transparent 100%);
+  animation: shimmer-pass 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Smooth 60fps animations - GPU accelerated only */
+@keyframes smooth-fade-in {
+  from { 
+    opacity: 0; 
+    transform: translate3d(0, 20px, 0);
+  }
+  to { 
+    opacity: 1; 
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes smooth-scale-in {
+  from { 
+    opacity: 0; 
+    transform: scale3d(0.95, 0.95, 1);
+  }
+  to { 
+    opacity: 1; 
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* Prevent layout shift during animations */
+.motion-safe {
+  contain: layout style paint;
+}
+
+/* Optimize blur effects - but not for Razorpay */
+.backdrop-blur-md:not([class*="razorpay"]):not([id*="razorpay"]),
+.backdrop-blur-lg:not([class*="razorpay"]):not([id*="razorpay"]) {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  will-change: backdrop-filter;
+}
+
+/* Print-specific styles for NAAC reports */
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    background: white !important;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  /* Hide navigation and non-essential elements */
+  nav,
+  aside,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Ensure proper page breaks */
+  .print\:break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print\:break-after-page {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .print\:break-before-page {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Optimize text for print */
+  body {
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: 20pt;
+  }
+
+  h2 {
+    font-size: 16pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+  }
+
+  /* Ensure backgrounds and borders print */
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Remove shadows for cleaner print */
+  .shadow,
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  /* Optimize spacing */
+  .space-y-8 > * + * {
+    margin-top: 1.5rem !important;
+  }
+
+  .space-y-6 > * + * {
+    margin-top: 1rem !important;
+  }
+
+  /* Remove backdrop blur for print */
+  .backdrop-blur-md,
+  .backdrop-blur-lg {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Ensure white backgrounds for cards */
+  .bg-white {
+    background-color: white !important;
+  }
+}

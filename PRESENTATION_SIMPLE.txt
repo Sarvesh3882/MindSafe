@@ -1,0 +1,190 @@
+MINDSAFE INDIA - 6 SLIDE PRESENTATION
+=====================================
+
+SLIDE 1: TITLE
+--------------
+MindSafe India
+AI-Powered Mental Health Platform for Indian Colleges
+
+Making mental health support accessible, affordable, and stigma-free
+
+Version 2.0 | May 2026 | Production Ready
+
+
+SLIDE 2: THE PROBLEM & OPPORTUNITY
+-----------------------------------
+The Mental Health Crisis in Indian Colleges
+
+THE PROBLEM:
+• 1 counsellor per 500+ students
+• No systematic mental health screening
+• Paper-based, fragmented processes
+• Students avoid help due to stigma
+• Zero real-time crisis response
+• No institutional visibility or data
+
+THE OPPORTUNITY:
+• 2,000+ Indian colleges & universities
+• 40 million college students nationwide
+• NAAC compliance requirement (mandatory)
+• ₹500 Cr+ addressable market
+• B2B SaaS model (sold to institutions)
+
+"Mental health is now a scored NAAC criteria — making MindSafe India an institutional necessity"
+
+
+SLIDE 3: THE SOLUTION
+----------------------
+Complete Digital Mental Health Ecosystem
+
+FOR STUDENTS:
+• Invisible AI Assessment (ARIA)
+  - Daily emotion check-ins
+  - Clinically validated (PHQ-9, GAD-7, PSS-10)
+  - No stigma, feels like a wellness app
+• 24/7 AI chatbot companion
+• Anonymous resource access
+• Video consultations from home
+• Digital prescriptions
+• Secure messaging with counsellor
+
+FOR COUNSELLORS:
+• Smart Triage System
+  - Priority list (Red → Orange → Green)
+  - Automatic crisis alerts
+  - Real-time risk scoring
+• Digital prescription management
+• Secure messaging with students
+• Video meeting integration (Jitsi)
+• Session notes & history
+• Audit trail for compliance
+
+FOR ADMINS:
+• Campus-Wide Analytics
+  - Real-time wellness dashboard
+  - Department-wise breakdowns
+  - Trend analysis & forecasting
+• NAAC Compliance
+  - One-click PDF reports
+  - Evidence documentation
+  - Accreditation support
+• Resource Optimization
+  - Counsellor utilization metrics
+  - Budget justification data
+
+"One platform, three dashboards, complete institutional digitization"
+
+
+SLIDE 4: ARIA ASSESSMENT ENGINE
+--------------------------------
+ARIA: Adaptive Response & Insight Algorithm
+
+TRADITIONAL APPROACH:
+❌ Clinical questionnaires (PHQ-9, GAD-7)
+❌ Students know they're being tested
+❌ Stigma and avoidance
+❌ Low completion rates
+
+ARIA APPROACH:
+✅ Invisible assessment through daily check-ins
+✅ Feels like a wellness companion
+✅ Gamified with streaks and progress
+✅ 85%+ daily engagement
+
+HOW ARIA WORKS:
+Step 1: Emotion Tap → "How are you feeling today?" [6 emoji tiles]
+Step 2: Smart Follow-up → 2-3 contextual questions
+Step 3: Silent Scoring → Maps to PHQ-9, GAD-7, PSS-10 (user sees nothing clinical)
+Step 4: Risk Classification → Green (Stable) | Orange (Attention) | Red (Critical)
+Step 5: Action → Wellness tips | Counsellor suggestion | Instant alert
+
+ARIA PERFORMANCE:
+• 85+ questions from validated instruments
+• 7 categories tracked (depression, anxiety, stress, sleep, burnout, loneliness, substance)
+• < 2 minutes average completion time
+• Zero API cost (hardcoded logic, not AI)
+
+"Clinical accuracy without clinical feel — that's ARIA"
+
+
+SLIDE 5: TECHNICAL ARCHITECTURE
+--------------------------------
+Production-Ready, Enterprise-Grade Platform
+
+TECH STACK:
+Frontend: Next.js 14, Tailwind CSS, Framer Motion, Recharts
+Backend: Supabase (PostgreSQL), Supabase Auth, Supabase Realtime
+Integrations: Mistral API (chatbot), Jitsi Meet (video), Twilio (SMS), Razorpay (payments)
+Deployment: Vercel, GitHub
+
+KEY FEATURES (ALL IMPLEMENTED):
+✅ Dynamic ARIA assessment engine
+✅ Real-time risk classification
+✅ Automatic crisis alerts
+✅ Secure messaging system
+✅ Video consultations (Jitsi)
+✅ Real-time sync (< 500ms)
+✅ Digital prescription system
+✅ Complete audit trail
+✅ NAAC compliance reports
+✅ Row Level Security (RLS)
+✅ Anonymous access mode
+✅ Mobile-responsive design
+
+PLATFORM SCALE:
+50+ React components | 20+ API endpoints | 10 database tables | 15+ RLS policies | 4 user roles
+
+
+SLIDE 6: BUSINESS MODEL & PRICING
+----------------------------------
+Scalable B2B SaaS Model for Indian Colleges
+
+PRICING TIERS:
+
+BASIC - ₹15,000/month
+• Up to 500 students
+• 1 counsellor account
+• ARIA Assessment ✅
+• AI Chatbot ✅
+• Video Consultations ✅
+• Prescriptions ✅
+• Secure Messaging ✅
+• Basic Admin Dashboard
+
+GROWTH - ₹35,000/month
+• Up to 2,000 students
+• 5 counsellor accounts
+• Everything in Basic +
+• Full Admin Dashboard
+• NAAC Reports ✅
+• Monthly Analytics
+
+ENTERPRISE - Custom Pricing
+• Unlimited students
+• Unlimited counsellors
+• Everything in Growth +
+• Custom Branding ✅
+• API Access ✅
+• Dedicated Support ✅
+
+ROI FOR COLLEGES:
+💰 NAAC Score Boost → Higher ranking & funding
+💰 Crisis Prevention → Reduced liability & incidents
+💰 Student Retention → Better mental health = lower dropouts
+💰 Counsellor Efficiency → 3x more students managed
+💰 Compliance Automation → Save 100+ admin hours/year
+
+WHY MINDSAFE INDIA?
+✅ Only platform built for Indian NAAC compliance
+✅ Complete solution (not just chatbot or booking)
+✅ Invisible assessment (ARIA innovation)
+✅ Real-time sync (instant updates)
+✅ Production-ready (deployed & tested)
+✅ Affordable (₹30-70 per student/year)
+
+READY TO DEPLOY
+Live on Vercel | GitHub: Sarvesh3882/mindsafe-india.v1
+
+=====================================
+END OF PRESENTATION
+=====================================

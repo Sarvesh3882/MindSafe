@@ -1,0 +1,22 @@
+{
+  "name": "MindSafe India",
+  "short_name": "MindSafe",
+  "description": "AI-powered mental health platform for Indian colleges.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5FFF5",
+  "theme_color": "#3DBE29",
+  "icons": [
+    {
+      "src": "/logo-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
