@@ -241,8 +241,8 @@ function CheckinFlow() {
     if (riskLevel === "critical") {
       dispatch({ type: "TRIGGER_CRISIS" });
       await saveCrisisAssessment(newScores);
-      if (context.userId) {
-        await triggerCrisisAlert(context.userId);
+      if (context.userId && !isAnonymous) {
+        await triggerCrisisAlert(context.userId, isAnonymous);
       }
       return;
     }
@@ -282,7 +282,7 @@ function CheckinFlow() {
       session_duration_seconds: sessionDuration,
     };
 
-    const result = await saveAssessment(payload);
+    const result = await saveAssessment(payload, 2, isAnonymous);
     if (!result.success) {
       dispatch({ type: "SET_ERROR", payload: { error: result.error || "Save failed" } });
       return;
@@ -330,7 +330,7 @@ function CheckinFlow() {
       session_duration_seconds: sessionDuration,
     };
 
-    await saveAssessment(payload);
+    await saveAssessment(payload, 2, isAnonymous);
   };
 
   // Complete full assessment
@@ -401,7 +401,7 @@ function CheckinFlow() {
       session_duration_seconds: sessionDuration,
     };
 
-    await saveAssessment(payload);
+    await saveAssessment(payload, 2, isAnonymous);
   };
 
   if (loading) {

@@ -41,11 +41,21 @@ function delay(ms: number): Promise<void> {
 /**
  * Save assessment with retry logic
  * Retries up to 2 times with exponential backoff (500ms, 1000ms)
+ * 
+ * GUEST MODE: Returns success immediately without saving to Supabase
+ * This allows unlimited guest tests without consuming database resources
  */
 export async function saveAssessment(
   payload: AssessmentPayload,
-  maxRetries = 2
+  maxRetries = 2,
+  isGuest = false
 ): Promise<{ success: boolean; error?: string }> {
+  // Guest mode: Skip database write entirely
+  if (isGuest) {
+    console.log("Guest mode: Assessment not saved to database");
+    return { success: true };
+  }
+
   const supabase = createClient();
 
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
@@ -85,10 +95,19 @@ export async function saveAssessment(
 /**
  * Trigger crisis alert
  * Calls the alerts API to notify counsellor
+ * 
+ * GUEST MODE: Returns success immediately without triggering alert
  */
 export async function triggerCrisisAlert(
-  userId: string
+  userId: string,
+  isGuest = false
 ): Promise<{ success: boolean; error?: string }> {
+  // Guest mode: Skip alert trigger
+  if (isGuest) {
+    console.log("Guest mode: Crisis alert not triggered");
+    return { success: true };
+  }
+
   try {
     const response = await fetch("/api/alerts/trigger", {
       method: "POST",
