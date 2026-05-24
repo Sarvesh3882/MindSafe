@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { IllustrationBackdrop } from "@/components/shared/illustration-backdrop";
 import { ToastContainer } from "@/components/ui/Toast";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "MindSafe India — Campus Mental Wellness Platform",
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <IllustrationBackdrop />
         {children}
         <ToastContainer />
+        <Analytics />
       </body>
     </html>
   );
