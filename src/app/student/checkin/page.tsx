@@ -111,7 +111,7 @@ function CheckinFlow() {
     }
 
     checkTodayCheckin();
-  }, [router]);
+  }, [router, isAnonymous]);
 
   // Initialize triage phase
   async function initTriage(userId: string | null) {
