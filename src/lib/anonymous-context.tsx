@@ -19,14 +19,18 @@ const STORAGE_KEY = "mindsafe_anonymous_mode";
 
 export function AnonymousProvider({ children }: { children: ReactNode }) {
   const [isAnonymous, setIsAnonymous] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    async function init() {
-      // Check sessionStorage first for immediate hydration
-      const stored = sessionStorage.getItem(STORAGE_KEY);
-      if (stored === "true") setIsAnonymous(true);
+    // Check sessionStorage immediately on mount
+    const stored = sessionStorage.getItem(STORAGE_KEY);
+    if (stored === "true") {
+      setIsAnonymous(true);
+    }
+    setIsInitialized(true);
 
-      // Then verify against real auth — if real user exists, clear anonymous mode
+    // Then verify against real auth — if real user exists, clear anonymous mode
+    async function checkAuth() {
       try {
         const supabase = createClient();
         const { data: { user } } = await supabase.auth.getUser();
@@ -39,7 +43,7 @@ export function AnonymousProvider({ children }: { children: ReactNode }) {
       }
     }
 
-    init();
+    checkAuth();
   }, []);
 
   function setAnonymous(value: boolean) {
